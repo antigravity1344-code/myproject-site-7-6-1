@@ -37,6 +37,7 @@
   align-items: center;
   box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
   border: 5px solid #f3faf5;
+height: 175px;
 }
 
 .storyCard:hover {
