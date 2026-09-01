@@ -1,65 +1,109 @@
 .siteHeader {
   position: sticky;
-  top: 0;
+  top: 15px; /* ایجاد یک فاصله ملایم از سقف برای شناور شدن زیباتر هدر */
+  margin: 0 24px;
   z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(246, 243, 226, 0.95);
-  padding: 15px 24px;
-  border:4px solid rgb(251, 252, 250);
+  background: rgba(246, 245, 240, 0.82); /* شفافیت اولیه شیشه‌ای */
+  padding: 12px 24px;
+  border: 1px solid #f6f4ef;
   border-radius: 16px;
-  backdrop-filter: inherit(10px);
-  box-shadow: 3 8px 24px rgba(231, 11, 11, 0.04);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: background-color 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+/* ۱. هاور کلی روی تمام ردیف هدر */
+.siteHeader:hover {
+  background: rgba(246, 245, 240, 0.98);
+  border-color: #d1d0ce;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* عمق گرفتن سایه */
 }
 
 .headerBrand {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #915812;
+  letter-spacing: 0.02em;
 }
 
 .brandLink {
+  display: inline-block; /* الزامی برای اعمال افکت حرکتی */
   text-decoration: none;
   color: inherit;
+  transition: transform 250ms ease, color 250ms ease;
+}
+
+/* حرکت ملایم نام برند به بالا هنگام هاور */
+.brandLink:hover {
+  transform: translateY(-2px);
+  color: #8d0ce2;
 }
 
 .headerNav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .headerNav a {
-  padding: 8px 12px;
+  position: relative;
+  display: inline-block; /* بسیار مهم: برای اینکه ترنسفرم حرکتی روی تگ a کار کند */
+  padding: 6px 14px;
   text-decoration: none;
-  color: #4a4a4a;
+  color: #095e39; /* رنگ خاکستری-قهوه‌ای ملایم در حالت عادی */
   font-weight: 500;
-  border-radius: 999px;
-  transition: background-color 180ms ease, transform 180ms ease;
+  font-size: 0.95rem;
+  transition: color 250ms ease, transform 250ms ease;
 }
 
+/* ۲. هاور انفرادی کلمات: تغییر رنگ به تیره و حرکت ملایم به سمت بالا */
 .headerNav a:hover {
-  background-color: #b6800a;
-  transform: translateY(-1px);
+  color: #aa1010;
+  transform: translateY(-3px); /* جابجایی سه‌پیکسلی به سمت بالا */
+}
+
+/* افکت خط باریک متحرک در زیر متن برای گزینه فعال */
+.headerNav a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 18px;
+  height: 2.5px;
+  background-color: #2a0af9;
+  border-radius: 99px;
+  transition: transform 220ms ease;
 }
 
 .headerNav a.active {
-  background-color: #d8d0c2;
-  color: #1a1a1a;
+  color: #121212;
   font-weight: 700;
+}
+
+.headerNav a.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 @media (max-width: 640px) {
   .siteHeader {
+    margin: 10px 16px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 12px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
   }
 
   .headerNav {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .headerNav a {
+    padding: 8px 10px;
+    font-size: 0.85rem;
   }
 }
