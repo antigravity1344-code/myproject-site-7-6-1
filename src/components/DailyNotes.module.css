@@ -47,19 +47,22 @@
   background-color: #e7eadf;
   border: 5px solid #f3faf5;
   border-radius: 12px;
-  padding: 12px 14px;
+  box-sizing: border-box;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.25s ease;
- box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
+  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
  height: 180px;
 }
 
 .cardItem:hover {
-  background-color: #f1bdbd;
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+  background-color: #f3e4d3;
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 30px -14px rgba(59, 42, 30, 0.35),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30);
 }
 
 .cardTopBar {

@@ -17,12 +17,11 @@ section[id], footer[id] {
 
 .main-content-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 26px;
-  margin: 30px 0 20px;
+  grid-template-columns: clamp(250px, 25.3vw, 320px) clamp(300px, 31.5vw, 400px) clamp(250px, 25.3vw, 320px);
+  column-gap: 28px;
+  row-gap: 28px;
+  margin: 36px 0 40px;
   padding: 0 20px;
-  /* stretch: همه‌ی ستون‌ها به‌اندازه‌ی بلندترین ستون کشیده می‌شوند و
-     بالا/پایین آن‌ها کاملاً تراز و هم‌ارتفاع دیده می‌شود */
   align-items: stretch;
 }
 
@@ -64,7 +63,7 @@ section[id], footer[id] {
   color: #1a1a1a;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .main-content-grid {
     grid-template-columns: 1fr;
     padding: 0;

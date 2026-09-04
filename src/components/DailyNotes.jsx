@@ -92,10 +92,11 @@ function DailyNotes() {
               onMouseEnter={() => setHoveredId(note.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
-                transition: 'box-shadow 220ms ease, transform 220ms ease',
+                transition: 'box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease',
                 boxShadow: hoveredId === note.id
-                  ? 'inset 0 -22px 26px -16px rgba(59, 42, 30, 0.35)'
+                  ? '0 20px 30px -14px rgba(59, 42, 30, 0.35), inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30)'
                   : undefined,
+                backgroundColor: hoveredId === note.id ? '#f3e4d3' : undefined,
                 transform: hoveredId === note.id ? 'translateY(-3px)' : undefined,
               }}
             >
