@@ -35,3 +35,30 @@ Storage: prefer authenticated uploads, or a bucket with MIME/size limits and no 
 1. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the host (Vercel/Netlify/etc.).
 2. Confirm RLS policies in Supabase Dashboard → Authentication → Policies.
 3. Never put the **service_role** key in the frontend.
+
+## contact_messages (فرم تماس)
+
+Create in Supabase SQL editor if missing:
+
+```sql
+create table if not exists contact_messages (
+  id bigint generated always as identity primary key,
+  author_name text,
+  body text not null,
+  created_at timestamptz not null default now()
+);
+
+alter table contact_messages enable row level security;
+
+create policy "contact_insert_anon"
+  on contact_messages for insert
+  to anon, authenticated
+  with check (
+    char_length(trim(body)) between 1 and 4000
+    and (author_name is null or char_length(trim(author_name)) <= 80)
+  );
+
+-- Read only via service role / dashboard (no public select policy)
+```
+
+View messages: Supabase → Table Editor → `contact_messages`.
