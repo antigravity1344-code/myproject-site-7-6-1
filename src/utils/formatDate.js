@@ -1,6 +1,6 @@
 /**
- * نمایش تاریخ برای UI: شمسی + فقط تاریخ و ساعت (بدون ثانیه/منطقه زمانی).
- * ورودی می‌تواند ISO کامل یا رشته‌ی ساده باشد.
+ * نمایش تاریخ برای UI: شمسی + فقط تاریخ و ساعت (بدون ثانیه).
+ * در RTL: سمت راست ساعت، سمت چپ تاریخ → رشته به صورت «ساعت، تاریخ».
  */
 export function formatDate(value, { withTime = true } = {}) {
   if (value == null || value === '') return '';
@@ -11,20 +11,30 @@ export function formatDate(value, { withTime = true } = {}) {
     return raw;
   }
 
-  const options = {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  };
-  if (withTime) {
-    options.hour = '2-digit';
-    options.minute = '2-digit';
-    options.hour12 = false;
-  }
+  const datePart = (() => {
+    try {
+      return new Intl.DateTimeFormat('fa-IR-u-ca-persian', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(parsed);
+    } catch {
+      return new Intl.DateTimeFormat('fa-IR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(parsed);
+    }
+  })();
 
-  try {
-    return new Intl.DateTimeFormat('fa-IR-u-ca-persian', options).format(parsed);
-  } catch {
-    return new Intl.DateTimeFormat('fa-IR', options).format(parsed);
-  }
+  if (!withTime) return datePart;
+
+  const timePart = new Intl.DateTimeFormat('fa-IR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(parsed);
+
+  // RTL: first token sits on the right → hour first, then date
+  return `${timePart}، ${datePart}`;
 }
