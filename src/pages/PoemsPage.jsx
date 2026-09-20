@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 import { getContent } from '../utils/content';
 import { supabase } from '../utils/supabaseClient';
 import { COMMENTS_ENABLED } from '../utils/featureFlags';
@@ -111,7 +112,7 @@ function PoemCard({ poem, commentCount }) {
         <h3 className="media-title">{poem.title}</h3>
         <p className="media-desc" style={{ whiteSpace: 'pre-line' }}>{poem.body}</p>
         <span className="media-meta">
-          {poem.author || 'علی رضایی'} · {poem.date}
+          {poem.author || 'محمد قنبری'} · {formatDate(poem.date)}
           {COMMENTS_ENABLED ? (
             <>
               {' · '}
@@ -220,7 +221,7 @@ function PoemsPage() {
       <Link to="/" className="back-link">← بازگشت به صفحه اصلی</Link>
 
       <h1 className="page-title">همه شعرها</h1>
-      <p className="page-lead">مجموعه‌ی کامل شعرهای علی رضایی.</p>
+      <p className="page-lead">مجموعه‌ی کامل شعرهای محمد قنبری.</p>
 
       <div className="card-stack">
         {poems.length === 0 && <p className="page-lead">هنوز شعری ثبت نشده است.</p>}

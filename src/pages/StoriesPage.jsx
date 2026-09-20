@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 import { getContent } from '../utils/content';
 
 function excerptOf(text, maxLength = 90) {
@@ -25,7 +26,7 @@ function StoriesPage() {
               <h3 className="media-title">{story.title}</h3>
               <p className="media-desc">{excerptOf(story.desc)}</p>
               <span className="media-meta">
-                {story.date}
+                {formatDate(story.date)}
                 {' · '}
                 <span style={{ fontSize: '0.95rem', fontWeight: 600, color: '#8a6d3b' }}>
                   ادامه مطلب و ارسال نظر ←

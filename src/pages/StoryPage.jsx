@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
 import ReactMarkdown from 'react-markdown';
@@ -31,7 +32,7 @@ function StoryPage() {
 
           <div className="detail-body">
             <h1 className="page-title">{story.title}</h1>
-            <span className="media-meta">{story.date}</span>
+            <span className="media-meta">{formatDate(story.date)}</span>
             <p className="media-desc" style={{ marginTop: '12px', color: '#666', fontStyle: 'italic' }}>
               {story.desc}
             </p>

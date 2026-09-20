@@ -2,15 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Stories.module.css';
 import { getContent } from '../utils/content';
-
-function formatDate(value) {
-  const raw = String(value || '');
-  // اگر تاریخ به‌صورت کامل ISO باشد، فقط بخش تاریخ (بدون ساعت) نشان داده می‌شود
-  if (raw.includes('T')) {
-    return raw.split('T')[0];
-  }
-  return raw;
-}
+import { formatDate } from '../utils/formatDate';
 
 function excerptOf(text, maxLength = 60) {
   const clean = String(text || '').replace(/\s+/g, ' ').trim();

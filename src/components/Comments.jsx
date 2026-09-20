@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
+import { formatDate } from '../utils/formatDate';
 import styles from './Comments.module.css';
 
 /**
@@ -119,7 +120,7 @@ function Comments({ contentType, contentId, onSubmitSuccess }) {
               <div className={styles.commentHeader}>
                 <span className={styles.commentName}>{comment.author_name}</span>
                 <span className={styles.commentDate}>
-                  {new Date(comment.created_at).toLocaleDateString('fa-IR')}
+                  {formatDate(comment.created_at)}
                 </span>
               </div>
               <p className={styles.commentBody}>{comment.body}</p>

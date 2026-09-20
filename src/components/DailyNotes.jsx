@@ -4,22 +4,13 @@ import styles from './DailyNotes.module.css';
 import { getContent } from '../utils/content';
 import { supabase } from '../utils/supabaseClient';
 import { COMMENTS_ENABLED } from '../utils/featureFlags';
+import { formatDate } from '../utils/formatDate';
 import Comments from './Comments.jsx';
 
 function excerptOf(text, maxLength = 110) {
   const clean = String(text || '').replace(/\s+/g, ' ').trim();
   if (clean.length <= maxLength) return clean;
   return clean.slice(0, maxLength).trim() + '…';
-}
-
-function formatDate(value) {
-  const raw = String(value || '');
-  // اگر تاریخ به‌صورت کامل ISO باشد (مثلاً 2026-08-14T09:43:00.000+03:30)
-  // فقط بخش تاریخ (YYYY-MM-DD) را نشان می‌دهیم
-  if (raw.includes('T')) {
-    return raw.split('T')[0];
-  }
-  return raw;
 }
 
 const CATEGORIES = ['خاطرات و روزنوشت', 'خلوت روح', 'دیده‌ها و شنیده‌ها'];

@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
 import Comments from '../components/Comments.jsx';
@@ -107,7 +108,7 @@ function NotePage() {
                   opacity: 0.85,
                 }}
               >
-                {note.date}
+                {formatDate(note.date)}
               </span>
             </div>
           </div>
@@ -128,7 +129,7 @@ function NotePage() {
 
           <div className="detail-body">
             <h1 className="page-title">{note.title}</h1>
-            <span className="media-meta">{note.date}</span>
+            <span className="media-meta">{formatDate(note.date)}</span>
             <p className="detail-text">{note.content}</p>
             <CopyDownload title={note.title} text={`${note.title}\n\n${note.content}`} />
             {COMMENTS_ENABLED ? <Comments contentType="note" contentId={note.id} /> : null}

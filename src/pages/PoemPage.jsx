@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
 import Comments from '../components/Comments.jsx';
@@ -29,7 +30,7 @@ function PoemPage() {
       <Link to="/poems" className="back-link">← بازگشت به فهرست شعرها</Link>
 
       <h1 className="page-title">{poem.title}</h1>
-      <p className="page-lead">شعر {poem.author || 'علی رضایی'}</p>
+      <p className="page-lead">شعر {poem.author || 'محمد قنبری'}</p>
 
       <div className="poem-card-h">
         <div style={{ position: 'relative' }}>
@@ -56,13 +57,13 @@ function PoemPage() {
           {lines.map((line) => (
             <p key={line}>{line}</p>
           ))}
-          <span className="media-meta">{poem.date}</span>
+          <span className="media-meta">{formatDate(poem.date)}</span>
         </div>
       </div>
 
       <CopyDownload
         title={poem.title}
-        text={`${poem.title}\n${poem.author || 'علی رضایی'}\n\n${poem.body}`}
+        text={`${poem.title}\n${poem.author || 'محمد قنبری'}\n\n${poem.body}`}
       />
       {COMMENTS_ENABLED ? <Comments contentType="poem" contentId={poem.id} /> : null}
     </div>
