@@ -1,4 +1,4 @@
-﻿# literary-portfolio — سایت شخصی و ادبی محمد قنبری
+# literary-portfolio — سایت شخصی و ادبی محمد قنبری
 
 سایت شخصی و ادبی ساخته‌شده با **React + Vite** شامل شعرها، داستان‌ها و یادداشت‌های روزانه، با مدیریت محتوا از طریق **Decap CMS**.
 
@@ -47,3 +47,6 @@ npm run lint      # بررسی کد با oxlint
 - Decap CMS
 - oxlint
 
+## پنل محتوا
+
+راهنمای ساده و قدم‌به‌قدم: [docs/rahnama-panel.md](docs/rahnama-panel.md)
