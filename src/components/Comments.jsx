@@ -17,6 +17,8 @@ function Comments({ contentType, contentId, onSubmitSuccess }) {
   const [body, setBody] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const MAX_NAME = 80;
+  const MAX_BODY = 2000;
 
   useEffect(() => {
     let isCancelled = false;
@@ -51,8 +53,14 @@ function Comments({ contentType, contentId, onSubmitSuccess }) {
     event.preventDefault();
     setError('');
 
-    if (!name.trim() || !body.trim()) {
-      setError('لطفاً نام و متن نظر را وارد کنید');
+    const trimmedName = name.trim();
+    const trimmedBody = body.trim();
+    if (!trimmedName || !trimmedBody) {
+      setError('نام و متن نظر را وارد کنید.');
+      return;
+    }
+    if (trimmedName.length > MAX_NAME || trimmedBody.length > MAX_BODY) {
+      setError('نام یا متن نظر بیش از حد مجاز است.');
       return;
     }
 
@@ -63,8 +71,8 @@ function Comments({ contentType, contentId, onSubmitSuccess }) {
       .insert({
         content_type: contentType,
         content_id: contentId,
-        author_name: name.trim(),
-        body: body.trim(),
+        author_name: trimmedName,
+        body: trimmedBody,
       })
       .select()
       .single();
