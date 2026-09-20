@@ -1,4 +1,4 @@
-// مسیر فایل: src/App.jsx
+﻿// مسیر فایل: src/App.jsx
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.jsx';
@@ -10,7 +10,6 @@ import ContactPage from './pages/ContactPage.jsx';
 import PoemPage from './pages/PoemPage.jsx';
 import PoemsPage from './pages/PoemsPage.jsx';
 import SubmitWork from './pages/SubmitWork.jsx';
-import FontTest from './pages/FontTest.jsx';
 import './App.css';
 import './styles/fonts.css';
 import AllStories from './pages/AllStories';
@@ -49,7 +48,6 @@ function App() {
         <Route path="/poems" element={<PoemsPage />} />
         <Route path="/poem/:id" element={<PoemPage />} />
         <Route path="/submit" element={<SubmitWork />} />
-        <Route path="/font-test" element={<FontTest />} />
       </Routes>
 
       <footer id="contact" className="site-footer">
