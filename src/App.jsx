@@ -51,11 +51,12 @@ function App() {
       </Routes>
 
       <footer id="contact" className="site-footer">
-        <div className="footer-copyright">© ۲۰۲۶ علی رضایی. تمام حقوق محفوظ است.</div>
+        <div className="footer-copyright">© ۲۰۲۶ محمد قنبری. تمام حقوق محفوظ است.</div>
         <div className="footer-socials">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://t.me" target="_blank" rel="noreferrer">Telegram</a>
-          <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+          {/* TODO: replace href="#" with real profile URLs when available */}
+          <a href="#" title="به‌زودی" aria-label="اینستاگرام — به‌زودی" onClick={(e) => e.preventDefault()}>Instagram</a>
+          <a href="#" title="به‌زودی" aria-label="تلگرام — به‌زودی" onClick={(e) => e.preventDefault()}>Telegram</a>
+          <a href="#" title="به‌زودی" aria-label="یوتیوب — به‌زودی" onClick={(e) => e.preventDefault()}>YouTube</a>
         </div>
       </footer>
     </div>
