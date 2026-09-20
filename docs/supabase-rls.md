@@ -1,4 +1,4 @@
-# Supabase RLS checklist (literary site)
+﻿# Supabase RLS checklist (literary site)
 
 Client keys moved to `VITE_SUPABASE_*` env vars. The anon/publishable key is still public in the browser — **Row Level Security must be enabled** on every table/storage the site uses.
 
@@ -38,7 +38,7 @@ Storage: prefer authenticated uploads, or a bucket with MIME/size limits and no 
 
 ## contact_messages (فرم تماس)
 
-Create in Supabase SQL editor if missing:
+Create in Supabase SQL editor if missing (or run `docs/contact_messages.sql`):
 
 ```sql
 create table if not exists contact_messages (
