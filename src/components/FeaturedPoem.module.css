@@ -36,7 +36,7 @@
   flex: 1 1 auto;
   overflow: hidden;
   border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(59, 42, 30, 0.24);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
@@ -114,5 +114,48 @@
 /* ===== هاور کارت شعر تصویری (فقط استایل؛ افزوده‌شده) ===== */
 .poemCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.10);
+  box-shadow:
+    0 20px 30px -14px rgba(59, 42, 30, 0.42),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.34);
+}
+
+@media (max-width: 640px) {
+  .featuredPoemColumn {
+    padding: 14px;
+    border-radius: 14px;
+    border-width: 3px;
+  }
+
+  .poemCard {
+    min-height: 220px;
+  }
+
+  .poemTextContent {
+    padding: 16px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .featuredPoemColumn {
+    padding: 12px;
+  }
+
+  .poemCard {
+    min-height: 200px;
+    border-radius: 12px;
+  }
+
+  .poemTextContent {
+    padding: 14px;
+    padding-right: 14px;
+  }
+
+  .poemTextContent h4 {
+    font-size: 1rem;
+  }
+
+  .poemTextContent p {
+    font-size: 0.88rem;
+  }
 }

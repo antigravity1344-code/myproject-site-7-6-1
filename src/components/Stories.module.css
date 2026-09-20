@@ -35,21 +35,18 @@
   gap: 15px;
   flex-direction: row-reverse;
   align-items: center;
-  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
+  box-shadow: 0 10px 25px rgba(59, 42, 30, 0.24);
   border: 5px solid #f3faf5;
   height: 180px;
+  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
 }
 
 .storyCard:hover {
   background-color: #f3e4d3;
   transform: translateY(-3px);
   box-shadow:
-    0 20px 30px -14px rgba(59, 42, 30, 0.35),
-    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30);
-}
-
-.storiesColumn .storyCard {
-  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
+    0 20px 30px -14px rgba(59, 42, 30, 0.42),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.34);
 }
 
 .storyDetails {
@@ -128,4 +125,55 @@
   background-color: #c4d9c4;
   color: #e8edea;
   transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .storiesColumn {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .storyCard {
+    height: auto;
+    min-height: 0;
+    padding: 12px;
+    gap: 10px;
+    border-width: 3px;
+  }
+
+  .storyImage {
+    width: 72px;
+    height: 72px;
+  }
+
+  .viewAllButton {
+    margin-top: 14px;
+    padding: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .storiesColumn {
+    padding: 12px;
+  }
+
+  .storyCard {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .storyImage {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+  }
+
+  .storyTitle {
+    font-size: 0.92rem;
+  }
+
+  .storyDesc {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
 }

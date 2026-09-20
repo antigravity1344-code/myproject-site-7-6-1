@@ -53,16 +53,16 @@
   flex-direction: column;
   justify-content: space-between;
   transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
-  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
- height: 180px;
+   box-shadow: 0 10px 25px rgba(59, 42, 30, 0.24);
+  height: 180px;
 }
 
 .cardItem:hover {
   background-color: #f3e4d3;
   transform: translateY(-3px);
   box-shadow:
-    0 20px 30px -14px rgba(59, 42, 30, 0.35),
-    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30);
+    0 20px 30px -14px rgba(59, 42, 30, 0.42),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.34);
 }
 
 .cardTopBar {
@@ -240,4 +240,45 @@
 
 .submitCommentBtn:hover {
   background-color: #1a1a1a;
+}
+
+@media (max-width: 640px) {
+  .dailyNotesColumn {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .cardItem {
+    height: auto;
+    min-height: 0;
+    padding: 12px;
+    border-width: 3px;
+  }
+
+  .cardTitle {
+    font-size: 14px;
+  }
+
+  .viewAllBtn {
+    padding: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .dailyNotesColumn {
+    padding: 12px;
+  }
+
+  .cardItem {
+    padding: 10px;
+  }
+
+  .headerWrapper {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .columnTitle {
+    font-size: 16px;
+  }
 }

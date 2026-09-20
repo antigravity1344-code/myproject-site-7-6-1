@@ -89,21 +89,50 @@
 
 @media (max-width: 640px) {
   .siteHeader {
-    margin: 10px 16px;
+    margin: 8px 8px 0;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
+    gap: 10px;
+    padding: 12px 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .headerBrand {
+    font-size: 1.1rem;
   }
 
   .headerNav {
     width: 100%;
     justify-content: center;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 2px 4px;
   }
-  
+
   .headerNav a {
-    padding: 8px 10px;
-    font-size: 0.85rem;
+    padding: 6px 8px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .siteHeader {
+    margin: 6px 4px 0;
+    padding: 10px 8px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .headerBrand {
+    font-size: 1rem;
+  }
+
+  .headerNav {
+    gap: 2px;
+  }
+
+  .headerNav a {
+    padding: 5px 6px;
+    font-size: 0.78rem;
   }
 }
